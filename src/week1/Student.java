@@ -1,38 +1,54 @@
 package week1;
 
 public class Student {
+    private String name, id, group, email;
 
-    // TODO: khai báo các thuộc tính cho Student
+    public String getName() {
+        return name;
 
-    // TODO: khai báo các phương thức getter, setter cho Student
+    }
+    public void setName(String s) {
+        name = s;
+    }
+    public String getID() {
+        return id;
+    }
+    public void setID(String s) {
+        id = s;
+    }
+    public String getGroup() {
+        return group;
+    }
+    public void setGroup(String s) {
+        group = s;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String s) {
+        email = s;
+    }
+    public void getInfo(){
+        System.out.println("Ten " + name + " ID " + id + " Group " + group + " Email " + email );
+    }
 
-    /**
-     * Constructor 1
-     */
     Student() {
-        // TODO:
-    }
+        name = "Student";
+        id = "000";
+        group = "INT22041";
+        email = "uet@vnu.edu.vn";
 
-    /**
-     * Constructor 2
-     * @param n
-     * @param sid
-     * @param em
-     */
+    }
     Student(String n, String sid, String em) {
-        // TODO:
+        name = n;
+        id = sid;
+        email = em;
+        group = "INT22041";
     }
-
-    /**
-     * Constructor 3
-     * @param s
-     */
-    Student(Student s) {
-        // TODO:
-    }
-
-    String getInfo() {
-        // TODO:
-        return null; // xóa dòng này sau khi cài đặt
+    Student( Student s) {
+        name = s.getName();
+        id = s.getID();
+        group = s.getGroup();
+        email = s.getEmail();
     }
 }
