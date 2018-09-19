@@ -5,7 +5,7 @@ public class StudentManagement {
     Student[] arrayStudent = new Student[100];
 
     public boolean sameGroup(Student s1, Student s2) {
-        if (s1.getGroup() == s2.getGroup()) {
+        if (s1.getGroup().equals(s2.getGroup())) {
             return true;
         }
         else return false;
@@ -25,7 +25,7 @@ public class StudentManagement {
         for (int i = 1; i < numberStudent; i++) {
             check = true;
             for (int j = 0; j < numberGroup; j++) {
-                if (arrayStudent[i].getGroup() == listGroup[j])
+                if (arrayStudent[i].getGroup().equals(listGroup[j]))
                     check = false;
             }
             if (check == true) {
@@ -36,7 +36,7 @@ public class StudentManagement {
         for (int i = 0; i < numberGroup; i++) {
             System.out.println("danh sach sinh vien nhom " + listGroup[i] + ":");
             for (int j = 0; j < numberStudent; j++) {
-                if (arrayStudent[j].getGroup() == listGroup[i])
+                if (arrayStudent[j].getGroup().equals(listGroup[i]))
                     System.out.println(arrayStudent[j].getName());
             }
         }
