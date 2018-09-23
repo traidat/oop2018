@@ -2,29 +2,74 @@ package week2.task2;
 
 public class Fraction {
 
-    // TODO: khai báo các thuộc tính
+    int numerator;
+    int denominator;
 
     public Fraction(int numerator, int denominator) {
-        // TODO: khởi tạo giá trị cho các thuộc tính numberator (tử số), denominator (mẫu số)
+        this.numerator = numerator;
+        this.denominator = denominator;
+    }
+
+    public static int gcd(int a, int b) {
+        int absA = Math.abs(a);
+        int absB = Math.abs(b);
+        if (absA == absB) {
+            return absA;
+        } else if (absA > absB) return gcd(absA - absB, absB);
+        else return gcd(absB - absA, absA);
     }
 
     public Fraction add(Fraction other) {
-        // TODO: Phương thức cộng hai phân số (this và other), trả về đối tượng Fraction mới
-        return null;
+        Fraction result = new Fraction(0, 0);
+        int ucln = gcd(this.denominator, other.denominator);
+        result.denominator = this.denominator * other.denominator / ucln;
+        result.numerator = this.numerator * other.denominator / ucln + other.numerator * this.denominator / ucln;
+        int uclnResult = gcd(result.denominator, result.numerator);
+        result.denominator = result.denominator / uclnResult;
+        result.numerator = result.numerator / uclnResult;
+        return result;
     }
 
     public Fraction subtract(Fraction other) {
-        // TODO: Phương thức trừ hai phân số (this và other), trả về đối tượng Fraction mới
-        return null;
+        Fraction result = new Fraction(0, 0);
+        int ucln = gcd(this.denominator, other.denominator);
+        result.denominator = this.denominator * other.denominator / ucln;
+        result.numerator = this.numerator * other.denominator / ucln - other.numerator * this.denominator / ucln;
+        int uclnResult = gcd(result.denominator, result.numerator);
+        result.denominator = result.denominator / uclnResult;
+        result.numerator = result.numerator / uclnResult;
+        return result;
     }
 
     public Fraction multiply(Fraction other) {
-        // TODO: Phương thức nhân hai phân số (this và other), trả về đối tượng Fraction mới
-        return null;
+        Fraction result = new Fraction(0, 0);
+        result.denominator = this.denominator * other.denominator;
+        result.numerator = this.numerator * other.numerator;
+        int uclnResult = gcd(result.denominator, result.numerator);
+        result.denominator = result.denominator / uclnResult;
+        result.numerator = result.numerator / uclnResult;
+        return result;
+
     }
 
     public Fraction divide(Fraction other) {
-        // TODO: Phương thức chia hai phân số (this và other), trả về đối tượng Fraction mới
-        return null;
+        Fraction result = new Fraction(0, 0);
+        result.denominator = this.denominator * other.numerator;
+        result.numerator = this.numerator * other.denominator;
+        int uclnResult = gcd(result.denominator, result.numerator);
+        result.denominator = result.denominator / uclnResult;
+        result.numerator = result.numerator / uclnResult;
+        return result;
+    }
+    public boolean equals(Object obj)
+
+    public static void main(String[] args) {
+        Fraction pso = new Fraction(-1, 3);
+        Fraction ps = new Fraction(1, 6);
+        System.out.println(pso.add(ps).numerator + "/" + pso.add(ps).denominator);
+        System.out.println(pso.subtract(ps).numerator + "/" + pso.subtract(ps).denominator);
+        System.out.println(pso.multiply(ps).numerator + "/" + pso.multiply(ps).denominator);
+        System.out.println(pso.divide(ps).numerator + "/" + pso.divide(ps).denominator);
     }
 }
+
