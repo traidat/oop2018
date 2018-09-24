@@ -35,10 +35,13 @@ public class Fraction {
         int ucln = gcd(this.denominator, other.denominator);
         result.denominator = this.denominator * other.denominator / ucln;
         result.numerator = this.numerator * other.denominator / ucln - other.numerator * this.denominator / ucln;
-        int uclnResult = gcd(result.denominator, result.numerator);
-        result.denominator = result.denominator / uclnResult;
-        result.numerator = result.numerator / uclnResult;
-        return result;
+        if (result.numerator == 0) return result;
+        else {
+            int uclnResult = gcd(result.denominator, result.numerator);
+            result.denominator = result.denominator / uclnResult;
+            result.numerator = result.numerator / uclnResult;
+            return result;
+        }
     }
 
     public Fraction multiply(Fraction other) {
@@ -61,15 +64,20 @@ public class Fraction {
         result.numerator = result.numerator / uclnResult;
         return result;
     }
-    public boolean equals(Object obj)
+    public boolean equals(Fraction other) {
+        if (this.subtract(other).numerator == 0)
+            return true;
+        else return false;
+    }
 
     public static void main(String[] args) {
-        Fraction pso = new Fraction(-1, 3);
-        Fraction ps = new Fraction(1, 6);
+        Fraction pso = new Fraction(-1, 6);
+        Fraction ps = new Fraction(1, -3);
         System.out.println(pso.add(ps).numerator + "/" + pso.add(ps).denominator);
         System.out.println(pso.subtract(ps).numerator + "/" + pso.subtract(ps).denominator);
         System.out.println(pso.multiply(ps).numerator + "/" + pso.multiply(ps).denominator);
         System.out.println(pso.divide(ps).numerator + "/" + pso.divide(ps).denominator);
+        System.out.println(pso.equals(ps));
     }
 }
 
