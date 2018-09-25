@@ -3,6 +3,7 @@ package week1;
 public class Student {
     private String name, id, group, email;
 
+
     public String getName() {
         return name;
 
@@ -13,7 +14,10 @@ public class Student {
     public String getID() {
         return id;
     }
-    public void setID(String s) {
+    public void setID(public String getName() {
+        return name;
+
+    }String s) {
         id = s;
     }
     public String getGroup() {
