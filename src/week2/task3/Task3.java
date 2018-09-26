@@ -1,9 +1,33 @@
 package week2.task3;
 
-public class job {
+public class Task3 {
+    public static void main(String[] args) {
+        job j = new job(2000, 4, true);
+        house h1 = new house(2, 6, 10000);
+        house h2 = new house(3, 4, 20000);
+        friend f = new friend("nu", 9.8, "ban be");
+        j.quit();
+        if (h1.compareHouse(h2) == h1)  {
+            System.out.println("khong chuyen nha");
+        }
+        else System.out.println("chuyeb nha thoi");
+        if (f.girlFriend() == true) {
+            System.out.println("da co ban gai");
+        }
+        else System.out.println("van FA");
+    }
+}
+
+class job {
     private long salary; // tien luong theo $
     private int condition; // dieu kien lam viec xep theo thang tu 1-10
     private boolean favorite; //tra ve true neu yeu thich cong viec
+
+    public job(long salary, int condition, boolean favorite) {
+        this.salary = salary;
+        this.condition = condition;
+        this.favorite = favorite;
+    }
 
     public long getSalary() {
         return salary;
@@ -30,11 +54,11 @@ public class job {
     }
 
     // neu bang true se bo viec
-    public boolean quit() {
+    public void quit() {
         if (favorite == false || salary <= 1000 || condition < 5) {
-            return true
+            System.out.println("bo viec");
         }
-        else return false;
+        else System.out.println("tiep tuc lam viec");
     }
 
     // so sanh hai cong viec cai nao tot hon
@@ -50,10 +74,16 @@ public class job {
     }
 }
 // nha
-public class house {
+class house {
     private double distance; // khoang cach den truong, noi lam viec
     private int condition; // dieu kien cua nha tu 1-10
     private long price;//  gia nha va cac phu phi $
+
+    public house(double distance, int condition, long price) {
+        this.distance = distance;
+        this.condition = condition;
+        this.price = price;
+    }
 
     public double getDistance() {
         return distance;
@@ -95,10 +125,16 @@ public class house {
         price = price - time*100;
     }
 }
-public class friend {
+class friend {
     private String sex; // gioi tinh
-    private int friendLevel; // do than thiet tu 1-10
+    private double friendLevel; // do than thiet tu 1-10
     private String status;// tinh trang voi ban nhu ban than, khong con la ban, ban xa giao...
+
+    public friend(String sex, double friendLevel, String status) {
+        this.sex = sex;
+        this.friendLevel = friendLevel;
+        this.status = status;
+    }
 
     public String getSex() {
         return sex;
@@ -108,11 +144,11 @@ public class friend {
         this.sex = sex;
     }
 
-    public int getFriendLevel() {
+    public double getFriendLevel() {
         return friendLevel;
     }
 
-    public void setFriendLevel(int friendLevel) {
+    public void setFriendLevel(double friendLevel) {
         this.friendLevel = friendLevel;
     }
 
@@ -139,8 +175,10 @@ public class friend {
     }
     // khong con la ban be
     public void unFriend() {
-        if (friendLevel < 1)
+        if (friendLevel < 1) {
             status = "khong con la ban";
+            System.out.println(status);
+        }
     }
 }
 
