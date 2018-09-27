@@ -64,8 +64,9 @@ public class Fraction {
         result.numerator = result.numerator / uclnResult;
         return result;
     }
-    public boolean equals(Fraction f1, Fraction f2) {
-        if (fi.subtract(f2).numerator == 0)
+    public boolean equals(Object obj) {
+        Fraction other = (Fraction) obj;
+        if (this.subtract(other).numerator == 0)
             return true;
         else return false;
     }
