@@ -24,10 +24,13 @@ public class Fraction {
         int ucln = gcd(this.denominator, other.denominator);
         result.denominator = this.denominator * other.denominator / ucln;
         result.numerator = this.numerator * other.denominator / ucln + other.numerator * this.denominator / ucln;
-        int uclnResult = gcd(result.denominator, result.numerator);
-        result.denominator = result.denominator / uclnResult;
-        result.numerator = result.numerator / uclnResult;
-        return result;
+        if (result.numerator == 0) return result;
+        else {
+            int uclnResult = gcd(result.denominator, result.numerator);
+            result.denominator = result.denominator / uclnResult;
+            result.numerator = result.numerator / uclnResult;
+            return result;
+        }
     }
 
     public Fraction subtract(Fraction other) {
