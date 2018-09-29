@@ -67,7 +67,8 @@ public class Fraction {
         result.numerator = result.numerator / uclnResult;
         return result;
     }
-    public boolean equals(Fraction other) {
+    public boolean equals(Object obj) {
+        Fraction other = (Fraction) obj;
         if (this.subtract(other).numerator == 0)
             return true;
         else return false;
