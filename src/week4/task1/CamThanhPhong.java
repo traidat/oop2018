@@ -7,6 +7,12 @@ public class CamThanhPhong extends Cam {
     private String origin;
     private int expiryDate;
 
+    public CamThanhPhong(String name, double price, String color, boolean seed, String origin, int expiryDate) {
+        super(name, price, color, seed);
+        this.origin = origin;
+        this.expiryDate = expiryDate;
+    }
+
     public String getOrigin() {
         return origin;
     }
@@ -28,7 +34,7 @@ public class CamThanhPhong extends Cam {
         if (isSeed() == true)
             s = " co hat";
         else s = " khong hat";
-        System.out.println(getName() + " gia: " + getPrice() + " mau : " getColor() + s + " xuat xu " + origin);
+        System.out.println(getName() + " gia: " + getPrice() + " mau : " + getColor() + s + " xuat xu " + origin);
     }
 
     /**

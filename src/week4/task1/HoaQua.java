@@ -7,6 +7,11 @@ public class HoaQua {
     private String name;
     private double price;
 
+    public HoaQua(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
     public String getName() {
         return name;
     }
@@ -37,5 +42,20 @@ public class HoaQua {
      */
     public double buy(double money) {
         return money/price;
+    }
+
+    public static void main(String[] args) {
+        HoaQua buoi = new HoaQua("Buoi", 15000);
+        Cam cam = new Cam("cam",20000,"cam",true);
+        Tao tao = new Tao("tao", 30000, "do", false);
+        CamSanh sanh = new CamSanh("cam sanh", 30000, "xanh", true, "vietnam", 60);
+        CamThanhPhong tp = new CamThanhPhong("cam thanh phong", 50000, "cam", true, "trung quoc", 40);
+        buoi.showALlHoaQua();
+        cam.showAllCam();
+        tao.showAllTao();
+        sanh.showAllCamSanh();
+        tp.showAllCamThanhPhong();
+
+
     }
 }

@@ -7,6 +7,12 @@ public class Cam extends HoaQua{
     private String color;
     private boolean seed;
 
+    public Cam(String name, double price, String color, boolean seed) {
+        super(name, price);
+        this.color = color;
+        this.seed = seed;
+    }
+
     public String getColor() {
         return color;
     }
@@ -31,7 +37,7 @@ public class Cam extends HoaQua{
         if (seed == true)
             s = " co hat";
         else s = " khong hat";
-        System.out.println(getName() + " gia: " + getPrice() + " mau : " color + s);
+        System.out.println(getName() + " gia: " + getPrice() + " mau : " + color + s);
     }
 
     /**

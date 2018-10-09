@@ -39,15 +39,4 @@ public class Square extends Rectangle {
                 "size=" + size +
                 '}';
     }
-
-    public void main(String[] args) {
-        Square hvuong = new Square();
-        Circle htron = new Circle();
-        Rectangle hcn = new Rectangle();
-        Shape hinh = new Shape();
-
-
-
-
-    }
 }

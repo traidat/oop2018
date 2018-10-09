@@ -14,6 +14,14 @@ public class Shape {
         this.filled = filled;
     }
 
+    @Override
+    public String toString() {
+        return "Shape{" +
+                "color='" + color + '\'' +
+                ", filled=" + filled +
+                '}';
+    }
+
     public String getColor() {
         return color;
     }
@@ -30,4 +38,14 @@ public class Shape {
         this.filled = filled;
     }
 
+    public static void main(String[] args) {
+        Square hvuong = new Square();
+        Circle htron = new Circle();
+        Rectangle hcn = new Rectangle();
+        Shape hinh = new Shape();
+        System.out.println(hvuong.toString());
+        System.out.println(htron.toString());
+        System.out.println(hcn.toString());
+        System.out.println(hinh.toString());
+    }
 }
