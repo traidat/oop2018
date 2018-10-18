@@ -1,6 +1,7 @@
 package week5_6;
 
 import com.sun.xml.internal.messaging.saaj.soap.JpegDataContentHandler;
+import java.awt.Graphics;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -17,4 +18,5 @@ public class Layer {
 
         }
     }
+    
 }

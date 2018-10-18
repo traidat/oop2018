@@ -1,29 +1,27 @@
 package week5_6;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import javax.swing.*;
 
-public class Shape {
-    boolean filled;
-    Position p;
+public abstract class Shape {
+    Color c;
 
-    public Shape(boolean filled, Position p) {
-        this.filled = filled;
-        this.p = p;
+    public Shape(Color c) {
+        
+        this.c = c;
     }
 
-    public boolean isFilled() {
-        return filled;
+
+    public Color getC() {
+        return c;
     }
 
-    public void setFilled(boolean filled) {
-        this.filled = filled;
+    public void setC(Color c) {
+        this.c = c;
     }
-
-    public Position getP() {
-        return p;
-    }
-
-    public void setP(Position p) {
-        this.p = p;
-    }
+    
+    public abstract void draw(Graphics g);
 }
+
+    

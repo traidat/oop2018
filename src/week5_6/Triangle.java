@@ -1,10 +1,13 @@
 package week5_6;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 public class Triangle extends Shape {
     Position d1, d2, d3;
 
-    public Triangle(boolean filled, Position p, Position d1, Position d2, Position d3) {
-        super(filled, p);
+public Triangle(Color c, Position d1, Position d2, Position d3) {
+        super(c);
         this.d1 = d1;
         this.d2 = d2;
         this.d3 = d3;
@@ -33,4 +36,11 @@ public class Triangle extends Shape {
     public void setD3(Position d3) {
         this.d3 = d3;
     }
+    public void draw(Graphics g) {
+        g.setColor(this.c);
+        g.drawLine(this.d1.x,this.d2.x, this.d1.y,this.d2.y);
+        g.drawLine(this.d3.x,this.d2.x, this.d3.y,this.d2.y);
+        g.drawLine(this.d1.x,this.d3.x, this.d1.y,this.d3.y);
+    }
 }
+    
