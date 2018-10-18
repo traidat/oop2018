@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Diagram extends JPanel {
+public class Diagram extends JFrame {
     ArrayList<Layer> layers = new ArrayList<Layer>();
 
     public void deleteCircle() {
@@ -17,29 +17,26 @@ public class Diagram extends JPanel {
             }
         }
     }
-
-    public void paint(Graphics g) {
-        setBackground(Color.WHITE);
-        Position p1 = new Position(500, 600);
-        Position p2 = new Position(100, 200);
-        Position p3 = new Position(300, 400);
-        Shape tron = new Circle(true, p1, 100);
-        Shape vuong = new Square(false, p2, 100);
-        Shape cn = new Rectangle(true, p3,100,200);
-        Layer layer = new Layer();
-        layer.shape.add(tron);
-        layer.shape.add(vuong);
-        layer.shape.add(cn);
-
-        g.setColor(Color.BLACK);
-        g.fillRect(cn.p.x, cn.p.y, ((Rectangle) cn).width, ((Rectangle) cn).length);
-        g.drawRect(vuong.p.x, vuong.p.y, ((Square) vuong).size, ((Square) vuong).size);
-        g.fillOval(tron.p.x, tron.p.y, ((Circle) tron).radius, ((Circle) tron).radius);
-    }
-
     public static void main(String[] args) {
 
+        Layer l = new Layer();
         Diagram d = new Diagram();
+        Position p1 = new Position(500, 600);
+        Position p2 = new Position(300, 400);
+        Position p3 = new Position(100, 200);
+        Position d1 = new Position(700, 800);
+        Position d2 = new Position(700, 900);
+        Position d3 = new Position(800, 900);
+        
+        Shape tron = new Circle(Color.RED,p1,20);
+        Shape vuong = new Square(Color.BLACK, p2, 10);
+        Shape cn = new Rectangle(20, 30, p3, Color.BLUE);
+        Shape tg = new Triangle(Color.GREEN, d1, d2, d3);
+        l.shape.add(tg);
+        l.shape.add(tron);
+        l.shape.add(cn);
+        l.shape.add(vuong);        
+        d.layers.add(l);
         JFrame f=new JFrame();
         f.add(d);
         f.setSize(1000,1000);
