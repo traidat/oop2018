@@ -20,6 +20,6 @@ public class ExpresstionTest {
         catch (ArithmeticException t) {
             System.out.println("Loi chia cho 0");
         }
-        System.out.println(e.toString());
+        System.out.println(e.evaluate());
     }
 }
