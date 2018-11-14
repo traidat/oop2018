@@ -31,18 +31,18 @@ public class Utils {
         }
     }
 
-    public static void writeContentToFile1(String path) throws IOException {
-        File file = new File(path);
-        try {
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("viet thanh cong");
-            bw.close();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void writeContentToFile1(String path) throws IOException {
+//        File file = new File(path);
+//        try {
+//            FileWriter fw = new FileWriter(file);
+//            BufferedWriter bw = new BufferedWriter(fw);
+//            bw.write("viet thanh cong");
+//            bw.close();
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public static File findFileByName(String folderPath, String fileName) throws IOException{
         File folder = new File(folderPath);
@@ -66,7 +66,7 @@ public class Utils {
     }
     public static void main (String[] args) throws IOException{
         System.out.println(readContentFromFile("oop.txt"));
-        writeContentToFile2("oop.txt");
+//        writeContentToFile2("oop.txt");
         System.out.println(readContentFromFile("oop.txt"));
         findFileByName("C:\\Users\\VX15\\IdeaProjects\\oop2018", "oop.txt");
     }

@@ -18,18 +18,18 @@ public class Task1 {
             FileReader fr = new FileReader(path);
             BufferedReader br = new BufferedReader(fr);
             while((line = br.readLine())!= null ) {
-                line1= line;
-                if(line1.contains("static")) {
+                line1 = line;
+                if(line1.contains("static") == true ) {
                     temp = temp + line1 + "\r\n";
-                    while ((line2 = br.readLine())!= null && line2.contains("static") == false) {
+                    while ((line2 = br.readLine())!= null && line2.contains("static") == false ) {
                         temp = temp + line2 + "\r\n";
                     }
                     s.add(temp);
                     temp = "";
                     temp = temp + line2 +"\r\n";
                 }
-                if (line2.contains("static")) {
-                    while ((line1 = br.readLine())!= null && line1.contains("static") == false) {
+                if (line2.contains("static") ) {
+                    while ((line1 = br.readLine())!= null && line1.contains("static") == false ) {
                         temp = temp + line1 + "\r\n";
                     }
                     s.add(temp);
@@ -45,6 +45,56 @@ public class Task1 {
         return s;
     }
 
+    public static String findFunctionByName(String name) throws IOException {
+        String name1 = name.substring(0,name.length() - 2);
+        String line = new String();
+        String result = "Khong co ham trong file";
+        List<String> s = new ArrayList<>();
+
+        try {
+            File file = new File("C:\\Users\\VX15\\IdeaProjects\\oop2018\\src\\week9\\Utils.java");
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+
+            while((line = br.readLine())!=null) {
+                if(line.contains("static")) {
+                    s.add(line);
+                }
+            }
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (name1.contains(",")) {
+            String[] a = name1.split(",");
+            for (int i = 0; i < s.size(); i++) {
+                String[] b = s.get(i).split(",");
+                if (b[0].contains(a[0]) == true && b[1].contains(a[1]) == true) {
+                    if (s.get(i).contains("//"))
+                        result =  "Ham trong phan comment";
+                    else result = "Co ham trong file";
+                }
+            }
+        }
+        else {
+            for (int i = 0; i < s.size(); i++) {
+                if (s.get(i).contains(name1)) {
+                    if (s.get(i).contains("//")) {
+                        result = "Ham trong phan comment";
+                        break;
+                    } else {
+                        result = "Co ham trong file";
+                        break;
+                    }
+                }
+            }
+
+        }
+        return result;
+    }
+
+
 
     public static void main(String[] args) throws IOException{
         File file = new File("C:\\Users\\VX15\\IdeaProjects\\oop2018\\src\\week9\\Utils.java");
@@ -52,6 +102,7 @@ public class Task1 {
         for(int i = 0; i < s.size(); i++) {
             System.out.println(s.get(i));
         }
+        System.out.println(findFunctionByName("writeContentToFile1(String)"));
     }
 
 }
