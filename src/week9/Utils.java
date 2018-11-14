@@ -17,10 +17,11 @@ public class Utils {
         }
         return s;
     }
-    public static void writeContentToFile(String path) throws IOException {
+
+    public static void writeContentToFile2(String path) throws IOException {
         File file = new File(path);
         try {
-            FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
+            FileWriter fw = new FileWriter(file, true);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write("viet thanh cong");
             bw.close();
@@ -29,6 +30,20 @@ public class Utils {
             e.printStackTrace();
         }
     }
+
+    public static void writeContentToFile1(String path) throws IOException {
+        File file = new File(path);
+        try {
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("viet thanh cong");
+            bw.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static File findFileByName(String folderPath, String fileName) throws IOException{
         File folder = new File(folderPath);
         boolean check = false;
@@ -51,7 +66,7 @@ public class Utils {
     }
     public static void main (String[] args) throws IOException{
         System.out.println(readContentFromFile("oop.txt"));
-        writeContentToFile("oop.txt");
+        writeContentToFile2("oop.txt");
         System.out.println(readContentFromFile("oop.txt"));
         findFileByName("C:\\Users\\VX15\\IdeaProjects\\oop2018", "oop.txt");
     }
