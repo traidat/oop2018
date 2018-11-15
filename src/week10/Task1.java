@@ -21,21 +21,13 @@ public class Task1 {
                 line1 = line;
                 if(line1.contains("static") == true ) {
                     temp = temp + line1 + "\r\n";
-                    while ((line2 = br.readLine())!= null && line2.contains("static") == false ) {
+                    while ((line2 = br.readLine())!= null && line2.equals("") == false ) {
                         temp = temp + line2 + "\r\n";
                     }
                     s.add(temp);
                     temp = "";
-                    temp = temp + line2 +"\r\n";
                 }
-                if (line2.contains("static") ) {
-                    while ((line1 = br.readLine())!= null && line1.contains("static") == false ) {
-                        temp = temp + line1 + "\r\n";
-                    }
-                    s.add(temp);
-                    temp = "";
-                    temp = temp + line1 +"\r\n";
-                }
+                
 
             }
         }
@@ -52,7 +44,7 @@ public class Task1 {
         List<String> s = new ArrayList<>();
 
         try {
-            File file = new File("C:\\Users\\VX15\\IdeaProjects\\oop2018\\src\\week9\\Utils.java");
+            File file = new File("C:\\Users\\CCNE\\Documents\\NetBeansProjects\\oop2018\\src\\week9\\Utils.java");
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
 
@@ -94,10 +86,8 @@ public class Task1 {
         return result;
     }
 
-
-
     public static void main(String[] args) throws IOException{
-        File file = new File("C:\\Users\\VX15\\IdeaProjects\\oop2018\\src\\week9\\Utils.java");
+        File file = new File("C:\\Users\\CCNE\\Documents\\NetBeansProjects\\oop2018\\src\\week9\\Utils.java");
         List<String> s = getAllFunctions(file);
         for(int i = 0; i < s.size(); i++) {
             System.out.println(s.get(i));
