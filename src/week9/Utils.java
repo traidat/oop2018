@@ -64,6 +64,7 @@ public class Utils {
             return file;
         }
     }
+    
     public static void main (String[] args) throws IOException{
         System.out.println(readContentFromFile("oop.txt"));
 //        writeContentToFile2("oop.txt");
